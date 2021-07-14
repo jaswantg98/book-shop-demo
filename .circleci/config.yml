@@ -57,3 +57,10 @@ workflows:
     jobs:
       - build
       - test
+      - package:
+          requires:
+            - build
+      - deploy:
+          requires:
+            - test
+            - package
